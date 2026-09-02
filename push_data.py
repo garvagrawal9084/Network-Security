@@ -57,10 +57,10 @@ class NetworkDataExtracy() :
 if __name__ == "__main__" :
     FILE_PATH = "Network_Data/phisingData.csv"
     DATABASE = "networkSecuity" 
-    Collection = "NetworkData"
+    COLLECTION = "NetworkData"
 
     network_obj  = NetworkDataExtracy()
     records = network_obj.csv_to_json_convertor(file_path=FILE_PATH)
-    no_of_records = network_obj.insert_data_mongodb(records , DATABASE , Collection)
+    no_of_records = network_obj.insert_data_mongodb(records , DATABASE , COLLECTION)
 
     print(no_of_records)
