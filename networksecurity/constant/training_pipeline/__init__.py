@@ -7,7 +7,7 @@ import pandas as pd
 Defining common constant variable for training pipeline
 """
 
-TARGET_COLUMN : str = "Result" , 
+TARGET_COLUMN : str = "Result"
 PIPELINE_NAME : str = "NetworkSecurity" 
 ARTIFACT_DIR : str = "Artifacts" 
 FILE_NAME : str = "phisingData.csv" 
@@ -16,6 +16,7 @@ TRAIN_FILE_NAME : str = "train.csv"
 TEST_FILE_NAME : str = "test.csv"
 
 SCHEMA_FILE_PATH = os.path.join("data_schema" , "schema.yaml")
+PREPROCESSING_FILE_NAME = "preprocessing.pkl"
 
 
 """
@@ -40,6 +41,20 @@ DATA_VALIDATION_INVALID_DIR  = "invalid"
 DATA_VALIDATION_DRIFT_REPORT_DIR = "drift_report"
 DATA_VALIDATION_DRIFT_REPORT_FILE_NAME = "report.yaml"
 
+
+"""
+Data transformation related constant start with DATA_TRANSFORMATION VAR NAME
+"""
+
+DATA_TRANSFORMATION_DIR_NAME : str = "data_transformation"
+DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR : str = "transformed"
+DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR : str = "transformed_object"
+
+# "knn imputer to replace nan values" 
+DATA_TRANSFORMATION_IMPUTER_PARAMS: dict = {
+    "n_neighbors": 3,
+    "weights": "uniform"
+}
 
 
 

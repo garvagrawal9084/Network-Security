@@ -1,0 +1,49 @@
+[ 2026-09-11 22:26:52,996 ] 17 root - INFO - Initiate the data ingestion
+[ 2026-09-11 22:26:52,996 ] 39 root - INFO - Start the export_collection_as_dataframe
+[ 2026-09-11 22:26:52,996 ] 44 root - INFO - Got the db and collection name
+[ 2026-09-11 22:26:57,118 ] 48 root - INFO - mongo connection done
+[ 2026-09-11 22:26:57,118 ] 52 root - INFO - mongo collection done
+[ 2026-09-11 22:26:57,118 ] 55 root - INFO - Making dataframe from mongodb
+[ 2026-09-11 22:26:58,419 ] 59 root - INFO - completed dataframe from mongodb
+[ 2026-09-11 22:26:58,422 ] 64 root - INFO - Removed _id column from dataframe
+[ 2026-09-11 22:26:58,422 ] 68 root - INFO - Remove nan
+[ 2026-09-11 22:26:58,467 ] 89 root - INFO - Performed train test split on the dataframe
+[ 2026-09-11 22:26:58,467 ] 95 root - INFO - Exporting train and test set into ingestion dir
+[ 2026-09-11 22:26:58,467 ] 101 root - INFO - Training file path: Artifacts/09_11_2026_22_26_52/data_ingestion/ingested/train.csv
+[ 2026-09-11 22:26:58,507 ] 106 root - INFO - Export train and test file completed
+[ 2026-09-11 22:26:58,507 ] 20 root - INFO - Data ingestion completed
+[ 2026-09-11 22:26:58,510 ] 25 root - INFO - Data validation start
+[ 2026-09-11 22:26:58,510 ] 99 root - INFO - Reading data from train and test csv
+[ 2026-09-11 22:26:58,527 ] 104 root - INFO - Reading data from train and test csv completed
+[ 2026-09-11 22:26:58,527 ] 109 root - INFO - Validate number of columns
+[ 2026-09-11 22:26:58,527 ] 33 root - INFO - The required number of columns : 31
+[ 2026-09-11 22:26:58,527 ] 34 root - INFO - Data Frame has columns : 31
+[ 2026-09-11 22:26:58,527 ] 33 root - INFO - The required number of columns : 31
+[ 2026-09-11 22:26:58,527 ] 34 root - INFO - Data Frame has columns : 31
+[ 2026-09-11 22:26:58,527 ] 125 root - INFO - Validate number of columns end
+[ 2026-09-11 22:26:58,527 ] 128 root - INFO - Validate number of numerical columns
+[ 2026-09-11 22:26:58,527 ] 49 root - INFO - The required numerical columns : 31
+[ 2026-09-11 22:26:58,527 ] 50 root - INFO - Dataframe numerical columns : 31
+[ 2026-09-11 22:26:58,528 ] 49 root - INFO - The required numerical columns : 31
+[ 2026-09-11 22:26:58,528 ] 50 root - INFO - Dataframe numerical columns : 31
+[ 2026-09-11 22:26:58,528 ] 148 root - INFO - Validate number of numerical columns end
+[ 2026-09-11 22:26:58,528 ] 151 root - INFO - Checking data drift
+[ 2026-09-11 22:26:58,644 ] 233 root - INFO - Data validation completed
+[ 2026-09-11 22:26:58,644 ] 27 root - INFO - Data validation ended
+[ 2026-09-11 22:26:58,644 ] 29 root - INFO - Initiate the Data tranformation
+[ 2026-09-11 22:26:58,644 ] 75 root - INFO - Entered iniinitiate_data_transformationt method of data transformation class
+[ 2026-09-11 22:26:58,644 ] 77 root - INFO - Starting data transformation
+[ 2026-09-11 22:26:58,644 ] 79 root - INFO - train and test dataframe from data validation
+[ 2026-09-11 22:26:58,660 ] 82 root - INFO - train and test dataframe from data validation ended
+[ 2026-09-11 22:26:58,683 ] 89 root - INFO - training dataframe started
+[ 2026-09-11 22:26:58,683 ] 90 root - INFO - drop result
+[ 2026-09-11 22:26:58,683 ] 107 root - INFO - drop the result complete
+[ 2026-09-11 22:26:58,683 ] 109 root - INFO - Target feature complete
+[ 2026-09-11 22:26:58,684 ] 111 root - INFO - Replace -1 to 0 compelete
+[ 2026-09-11 22:26:58,684 ] 112 root - INFO - training dataframe ended
+[ 2026-09-11 22:26:58,684 ] 116 root - INFO - test dataframe started
+[ 2026-09-11 22:26:58,684 ] 124 root - INFO - test dataframe ended
+[ 2026-09-11 22:26:58,684 ] 47 root - INFO - Enter get_data_transformer_object method
+[ 2026-09-11 22:26:58,730 ] 40 root - INFO - Entered the save_object method in main_utils
+[ 2026-09-11 22:26:58,731 ] 44 root - INFO - Exited the save_object from main_utils
+[ 2026-09-11 22:26:58,732 ] 36 root - INFO - Data tranformation end
