@@ -26,14 +26,17 @@ def write_yaml_file(file_path : str , content : object , replace : bool = False)
         raise NetworkSecurityException(e , sys) 
 
 
-def save_numpy_array_data(file_path : str , array : np.array) :
-    try :
+def save_numpy_array_data(file_path: str, array: np.ndarray):
+    try:
         dir_name = os.path.dirname(file_path)
-        os.makedirs(dir_name , exist_ok=True)
-        with open(file_path , "wb") as file :
-            np.save(file , array)
-    except Exception as e :
-        raise NetworkSecurityException(e , sys) 
+
+        if dir_name:
+            os.makedirs(dir_name, exist_ok=True)
+
+        np.save(file_path, array)
+
+    except Exception as e:
+        raise NetworkSecurityException(e, sys)
 
 def save_object(file_path : str , obj : Object) :
     try :
@@ -42,5 +45,25 @@ def save_object(file_path : str , obj : Object) :
         with open(file_path , "wb") as file :
             pickle.dump(obj, file)
         logging.info("Exited the save_object from main_utils")
+    except Exception as e :
+        raise NetworkSecurityException(e , sys)
+
+def load_object(file_path : str) -> object:
+    try :
+        if not os.path.exists(file_path) :
+            raise Exception(f"The file : {file_path} do not exist")
+        with open(file_path , "rb") as file :
+            print(file)
+            return pickle.load(file)
+    except Exception as e :
+        raise NetworkSecurityException(e , sys)
+
+def load_numpy_array_data(file_path : str) -> np.array :
+    try :
+        if not os.path.exists(file_path) :
+            raise Exception(f"The file : {file_path} do not exist")
+        
+        return np.load(file_path)
+        
     except Exception as e :
         raise NetworkSecurityException(e , sys)
