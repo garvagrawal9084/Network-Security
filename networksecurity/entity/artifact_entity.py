@@ -21,7 +21,7 @@ class DataTransformationArtifacts :
     transformed_test_file_path : str
 
 @dataclass
-class ClassificationMetricArtifact :
+class  ClassificationMetricArtifact :
     f1_score : float 
     precision_score : float
     recall_call : float
