@@ -1,0 +1,196 @@
+[ 2026-09-14 15:35:03,719 ] 18 root - INFO - Initiate the data ingestion
+[ 2026-09-14 15:35:03,719 ] 39 root - INFO - Start the export_collection_as_dataframe
+[ 2026-09-14 15:35:03,719 ] 44 root - INFO - Got the db and collection name
+[ 2026-09-14 15:35:04,147 ] 48 root - INFO - mongo connection done
+[ 2026-09-14 15:35:04,147 ] 52 root - INFO - mongo collection done
+[ 2026-09-14 15:35:04,147 ] 55 root - INFO - Making dataframe from mongodb
+[ 2026-09-14 15:35:20,724 ] 59 root - INFO - completed dataframe from mongodb
+[ 2026-09-14 15:35:20,727 ] 64 root - INFO - Removed _id column from dataframe
+[ 2026-09-14 15:35:20,728 ] 68 root - INFO - Remove nan
+[ 2026-09-14 15:35:20,782 ] 89 root - INFO - Performed train test split on the dataframe
+[ 2026-09-14 15:35:20,782 ] 95 root - INFO - Exporting train and test set into ingestion dir
+[ 2026-09-14 15:35:20,782 ] 101 root - INFO - Training file path: Artifacts/09_14_2026_15_35_03/data_ingestion/ingested/train.csv
+[ 2026-09-14 15:35:20,827 ] 106 root - INFO - Export train and test file completed
+[ 2026-09-14 15:35:20,827 ] 21 root - INFO - Data ingestion completed
+[ 2026-09-14 15:35:20,831 ] 26 root - INFO - Data validation start
+[ 2026-09-14 15:35:20,831 ] 99 root - INFO - Reading data from train and test csv
+[ 2026-09-14 15:35:20,849 ] 104 root - INFO - Reading data from train and test csv completed
+[ 2026-09-14 15:35:20,849 ] 109 root - INFO - Validate number of columns
+[ 2026-09-14 15:35:20,849 ] 33 root - INFO - The required number of columns : 31
+[ 2026-09-14 15:35:20,849 ] 34 root - INFO - Data Frame has columns : 31
+[ 2026-09-14 15:35:20,850 ] 33 root - INFO - The required number of columns : 31
+[ 2026-09-14 15:35:20,850 ] 34 root - INFO - Data Frame has columns : 31
+[ 2026-09-14 15:35:20,850 ] 125 root - INFO - Validate number of columns end
+[ 2026-09-14 15:35:20,850 ] 128 root - INFO - Validate number of numerical columns
+[ 2026-09-14 15:35:20,850 ] 49 root - INFO - The required numerical columns : 31
+[ 2026-09-14 15:35:20,850 ] 50 root - INFO - Dataframe numerical columns : 31
+[ 2026-09-14 15:35:20,851 ] 49 root - INFO - The required numerical columns : 31
+[ 2026-09-14 15:35:20,851 ] 50 root - INFO - Dataframe numerical columns : 31
+[ 2026-09-14 15:35:20,851 ] 148 root - INFO - Validate number of numerical columns end
+[ 2026-09-14 15:35:20,851 ] 151 root - INFO - Checking data drift
+[ 2026-09-14 15:35:21,070 ] 233 root - INFO - Data validation completed
+[ 2026-09-14 15:35:21,070 ] 28 root - INFO - Data validation ended
+[ 2026-09-14 15:35:21,070 ] 30 root - INFO - Initiate the Data tranformation
+[ 2026-09-14 15:35:21,070 ] 93 root - INFO - Entered initiate_data_transformation method of DataTransformation class
+[ 2026-09-14 15:35:21,071 ] 100 root - INFO - Starting data transformation
+[ 2026-09-14 15:35:21,071 ] 103 root - INFO - Reading train and test dataframe from data validation
+[ 2026-09-14 15:35:21,098 ] 116 root - INFO - Train and test dataframe reading completed
+[ 2026-09-14 15:35:21,098 ] 124 root - INFO - Preparing training dataframe
+[ 2026-09-14 15:35:21,100 ] 138 root - INFO - Training dataframe preparation completed
+[ 2026-09-14 15:35:21,100 ] 146 root - INFO - Preparing testing dataframe
+[ 2026-09-14 15:35:21,101 ] 160 root - INFO - Testing dataframe preparation completed
+[ 2026-09-14 15:35:21,101 ] 168 root - INFO - Creating data transformation object
+[ 2026-09-14 15:35:21,101 ] 57 root - INFO - Enter get_data_transformer_object method
+[ 2026-09-14 15:35:21,101 ] 68 root - INFO - Initialized KNN Imputer with parameters: {'n_neighbors': 3, 'weights': 'uniform'}
+[ 2026-09-14 15:35:21,101 ] 80 root - INFO - KNN Imputer pipeline created successfully
+[ 2026-09-14 15:35:21,101 ] 176 root - INFO - Fitting data transformation object
+[ 2026-09-14 15:35:21,121 ] 184 root - INFO - Data transformation object fitted successfully
+[ 2026-09-14 15:35:21,127 ] 202 root - INFO - Train and test features transformed successfully
+[ 2026-09-14 15:35:21,128 ] 220 root - INFO - Train and test arrays created successfully
+[ 2026-09-14 15:35:21,131 ] 45 root - INFO - Entered the save_object method in main_utils
+[ 2026-09-14 15:35:21,134 ] 49 root - INFO - Exited the save_object from main_utils
+[ 2026-09-14 15:35:21,134 ] 244 root - INFO - Transformed data and preprocessing object saved successfully
+[ 2026-09-14 15:35:21,134 ] 269 root - INFO - Data transformation completed successfully
+[ 2026-09-14 15:35:21,135 ] 37 root - INFO - Data tranformation end
+[ 2026-09-14 15:35:21,135 ] 39 root - INFO - Model trainer start
+[ 2026-09-14 15:35:21,135 ] 665 root - INFO - Initiate model trainer
+[ 2026-09-14 15:35:21,135 ] 673 root - INFO - Read train and test data
+[ 2026-09-14 15:35:21,137 ] 695 root - INFO - Read from train and test done
+[ 2026-09-14 15:35:21,137 ] 82 root - INFO - Inside the evaluation model
+[ 2026-09-14 15:35:21,137 ] 92 root - INFO - RS for Random Forest
+[ 2026-09-14 15:35:33,540 ] 106 root - INFO - RS for Random Forest end
+[ 2026-09-14 15:35:33,541 ] 108 root - INFO - Getting best estimator
+[ 2026-09-14 15:35:33,543 ] 112 root - INFO - Best estimator obtained for Random Forest: RandomForestClassifier(n_estimators=200)
+[ 2026-09-14 15:35:33,543 ] 117 root - INFO - Starting train prediction
+[ 2026-09-14 15:35:33,723 ] 121 root - INFO - Train prediction completed
+[ 2026-09-14 15:35:33,723 ] 123 root - INFO - Starting test prediction
+[ 2026-09-14 15:35:33,777 ] 127 root - INFO - Test prediction completed
+[ 2026-09-14 15:35:33,777 ] 129 root - INFO - Calculating train accuracy
+[ 2026-09-14 15:35:33,778 ] 136 root - INFO - Calculating test accuracy
+[ 2026-09-14 15:35:33,779 ] 149 root - INFO - Random Forest - Train Accuracy: 0.9903889642695612, Test Accuracy: 0.9728629579375848
+[ 2026-09-14 15:35:33,779 ] 92 root - INFO - RS for Decision Tree
+[ 2026-09-14 15:35:34,040 ] 106 root - INFO - RS for Decision Tree end
+[ 2026-09-14 15:35:34,041 ] 108 root - INFO - Getting best estimator
+[ 2026-09-14 15:35:34,041 ] 112 root - INFO - Best estimator obtained for Decision Tree: DecisionTreeClassifier(criterion='entropy', max_features='log2',
+                       min_samples_split=5)
+[ 2026-09-14 15:35:34,041 ] 117 root - INFO - Starting train prediction
+[ 2026-09-14 15:35:34,042 ] 121 root - INFO - Train prediction completed
+[ 2026-09-14 15:35:34,042 ] 123 root - INFO - Starting test prediction
+[ 2026-09-14 15:35:34,043 ] 127 root - INFO - Test prediction completed
+[ 2026-09-14 15:35:34,043 ] 129 root - INFO - Calculating train accuracy
+[ 2026-09-14 15:35:34,043 ] 136 root - INFO - Calculating test accuracy
+[ 2026-09-14 15:35:34,044 ] 149 root - INFO - Decision Tree - Train Accuracy: 0.9741067390321122, Test Accuracy: 0.9493441881501583
+[ 2026-09-14 15:35:34,044 ] 92 root - INFO - RS for Gradient Boosting
+[ 2026-09-14 15:35:55,323 ] 106 root - INFO - RS for Gradient Boosting end
+[ 2026-09-14 15:35:55,323 ] 108 root - INFO - Getting best estimator
+[ 2026-09-14 15:35:55,323 ] 112 root - INFO - Best estimator obtained for Gradient Boosting: GradientBoostingClassifier(learning_rate=0.05, max_depth=7, n_estimators=200)
+[ 2026-09-14 15:35:55,323 ] 117 root - INFO - Starting train prediction
+[ 2026-09-14 15:35:55,406 ] 121 root - INFO - Train prediction completed
+[ 2026-09-14 15:35:55,406 ] 123 root - INFO - Starting test prediction
+[ 2026-09-14 15:35:55,428 ] 127 root - INFO - Test prediction completed
+[ 2026-09-14 15:35:55,428 ] 129 root - INFO - Calculating train accuracy
+[ 2026-09-14 15:35:55,429 ] 136 root - INFO - Calculating test accuracy
+[ 2026-09-14 15:35:55,430 ] 149 root - INFO - Gradient Boosting - Train Accuracy: 0.9862053369516056, Test Accuracy: 0.973767526006332
+[ 2026-09-14 15:35:55,430 ] 92 root - INFO - RS for Xgboost
+[ 2026-09-14 15:35:57,196 ] 106 root - INFO - RS for Xgboost end
+[ 2026-09-14 15:35:57,196 ] 108 root - INFO - Getting best estimator
+[ 2026-09-14 15:35:57,196 ] 112 root - INFO - Best estimator obtained for Xgboost: XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=0.8, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              feature_weights=None, gamma=None, grow_policy=None,
+              importance_type=None, interaction_constraints=None,
+              learning_rate=0.1, max_bin=None, max_cat_threshold=None,
+              max_cat_to_onehot=None, max_delta_step=None, max_depth=7,
+              max_leaves=None, min_child_weight=None, missing=nan,
+              monotone_constraints=None, multi_strategy=None, n_estimators=200,
+              n_jobs=None, num_parallel_tree=None, ...)
+[ 2026-09-14 15:35:57,196 ] 117 root - INFO - Starting train prediction
+[ 2026-09-14 15:35:57,201 ] 121 root - INFO - Train prediction completed
+[ 2026-09-14 15:35:57,201 ] 123 root - INFO - Starting test prediction
+[ 2026-09-14 15:35:57,202 ] 127 root - INFO - Test prediction completed
+[ 2026-09-14 15:35:57,202 ] 129 root - INFO - Calculating train accuracy
+[ 2026-09-14 15:35:57,203 ] 136 root - INFO - Calculating test accuracy
+[ 2026-09-14 15:35:57,204 ] 149 root - INFO - Xgboost - Train Accuracy: 0.9866576209859792, Test Accuracy: 0.9733152419719584
+[ 2026-09-14 15:35:57,204 ] 92 root - INFO - RS for Logistic Regression
+[ 2026-09-14 15:35:57,738 ] 106 root - INFO - RS for Logistic Regression end
+[ 2026-09-14 15:35:57,738 ] 108 root - INFO - Getting best estimator
+[ 2026-09-14 15:35:57,738 ] 112 root - INFO - Best estimator obtained for Logistic Regression: LogisticRegression(C=0.1, max_iter=200)
+[ 2026-09-14 15:35:57,738 ] 117 root - INFO - Starting train prediction
+[ 2026-09-14 15:35:57,739 ] 121 root - INFO - Train prediction completed
+[ 2026-09-14 15:35:57,739 ] 123 root - INFO - Starting test prediction
+[ 2026-09-14 15:35:57,739 ] 127 root - INFO - Test prediction completed
+[ 2026-09-14 15:35:57,739 ] 129 root - INFO - Calculating train accuracy
+[ 2026-09-14 15:35:57,739 ] 136 root - INFO - Calculating test accuracy
+[ 2026-09-14 15:35:57,740 ] 149 root - INFO - Logistic Regression - Train Accuracy: 0.9283129805517866, Test Accuracy: 0.9294436906377205
+[ 2026-09-14 15:35:57,740 ] 92 root - INFO - RS for AdaBoost
+[ 2026-09-14 15:36:03,789 ] 106 root - INFO - RS for AdaBoost end
+[ 2026-09-14 15:36:03,790 ] 108 root - INFO - Getting best estimator
+[ 2026-09-14 15:36:03,790 ] 112 root - INFO - Best estimator obtained for AdaBoost: AdaBoostClassifier(n_estimators=200)
+[ 2026-09-14 15:36:03,790 ] 117 root - INFO - Starting train prediction
+[ 2026-09-14 15:36:03,870 ] 121 root - INFO - Train prediction completed
+[ 2026-09-14 15:36:03,870 ] 123 root - INFO - Starting test prediction
+[ 2026-09-14 15:36:03,905 ] 127 root - INFO - Test prediction completed
+[ 2026-09-14 15:36:03,905 ] 129 root - INFO - Calculating train accuracy
+[ 2026-09-14 15:36:03,906 ] 136 root - INFO - Calculating test accuracy
+[ 2026-09-14 15:36:03,906 ] 149 root - INFO - AdaBoost - Train Accuracy: 0.9363410221619177, Test Accuracy: 0.937584803256445
+[ 2026-09-14 15:36:03,906 ] 92 root - INFO - RS for KNN
+[ 2026-09-14 15:36:05,152 ] 106 root - INFO - RS for KNN end
+[ 2026-09-14 15:36:05,152 ] 108 root - INFO - Getting best estimator
+[ 2026-09-14 15:36:05,153 ] 112 root - INFO - Best estimator obtained for KNN: KNeighborsClassifier(metric='manhattan', n_neighbors=9, weights='distance')
+[ 2026-09-14 15:36:05,153 ] 117 root - INFO - Starting train prediction
+[ 2026-09-14 15:36:05,440 ] 121 root - INFO - Train prediction completed
+[ 2026-09-14 15:36:05,441 ] 123 root - INFO - Starting test prediction
+[ 2026-09-14 15:36:05,517 ] 127 root - INFO - Test prediction completed
+[ 2026-09-14 15:36:05,517 ] 129 root - INFO - Calculating train accuracy
+[ 2026-09-14 15:36:05,518 ] 136 root - INFO - Calculating test accuracy
+[ 2026-09-14 15:36:05,519 ] 149 root - INFO - KNN - Train Accuracy: 0.9903889642695612, Test Accuracy: 0.9674355495251018
+[ 2026-09-14 15:36:05,519 ] 380 root - INFO - Out of evaluate_model
+[ 2026-09-14 15:36:05,519 ] 384 root - INFO - Started model evaluation and model selection
+[ 2026-09-14 15:36:05,519 ] 400 root - INFO - Test report after sorting: {'Gradient Boosting': 0.973767526006332, 'Xgboost': 0.9733152419719584, 'Random Forest': 0.9728629579375848, 'KNN': 0.9674355495251018, 'Decision Tree': 0.9493441881501583, 'AdaBoost': 0.937584803256445, 'Logistic Regression': 0.9294436906377205}
+[ 2026-09-14 15:36:05,519 ] 412 root - INFO - Best model found: Gradient Boosting with score: 0.973767526006332
+[ 2026-09-14 15:36:05,519 ] 422 root - INFO - Best model object obtained: GradientBoostingClassifier(learning_rate=0.05, max_depth=7, n_estimators=200)
+[ 2026-09-14 15:36:05,519 ] 426 root - INFO - Best model parameters: {'ccp_alpha': 0.0, 'criterion': 'deprecated', 'init': None, 'learning_rate': 0.05, 'loss': 'log_loss', 'max_depth': 7, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 200, 'n_iter_no_change': None, 'random_state': None, 'subsample': 1.0, 'tol': 0.0001, 'validation_fraction': 0.1, 'verbose': 0, 'warm_start': False}
+[ 2026-09-14 15:36:05,519 ] 435 root - INFO - Generating predictions on training dataset
+[ 2026-09-14 15:36:05,519 ] 439 root - INFO - X_train type: <class 'numpy.ndarray'>
+[ 2026-09-14 15:36:05,519 ] 443 root - INFO - X_train shape: (8844, 30)
+[ 2026-09-14 15:36:05,519 ] 447 root - INFO - X_train memory: 2.02 MB
+[ 2026-09-14 15:36:05,519 ] 452 root - INFO - Starting training prediction
+[ 2026-09-14 15:36:05,624 ] 460 root - INFO - Training predictions completed. Prediction shape: (8844,)
+[ 2026-09-14 15:36:05,624 ] 9 root - INFO - Inside the get_classification_score
+[ 2026-09-14 15:36:05,632 ] 476 root - INFO - get_classification_score completed for training data
+[ 2026-09-14 15:36:05,632 ] 480 root - INFO - Training metric: ClassificationMetricArtifact(f1_score=0.9877115229653505, precision_score=0.9839454144089905, recall_score=0.9915065722952477)
+[ 2026-09-14 15:36:05,632 ] 489 root - INFO - Generating predictions on test dataset
+[ 2026-09-14 15:36:05,662 ] 497 root - INFO - Test predictions completed
+[ 2026-09-14 15:36:05,662 ] 9 root - INFO - Inside the get_classification_score
+[ 2026-09-14 15:36:05,667 ] 512 root - INFO - get_classification_score completed for test data
+[ 2026-09-14 15:36:05,667 ] 516 root - INFO - Test metric: ClassificationMetricArtifact(f1_score=0.9761904761904762, precision_score=0.9714052287581699, recall_score=0.981023102310231)
+[ 2026-09-14 15:36:05,667 ] 525 root - INFO - Starting MLflow experiment tracking
+[ 2026-09-14 15:36:05,667 ] 71 root - INFO - Setting MLflow tracking URI
+[ 2026-09-14 15:36:05,695 ] 77 root - INFO - Setting MLflow experiment
+[ 2026-09-14 15:36:05,740 ] 83 root - INFO - Starting MLflow run
+[ 2026-09-14 15:36:05,850 ] 87 root - INFO - MLflow run started
+[ 2026-09-14 15:36:05,850 ] 90 root - INFO - Logging train F1
+[ 2026-09-14 15:36:05,858 ] 97 root - INFO - Logging train precision
+[ 2026-09-14 15:36:05,865 ] 104 root - INFO - Logging train recall
+[ 2026-09-14 15:36:05,873 ] 112 root - INFO - Logging test F1
+[ 2026-09-14 15:36:05,879 ] 119 root - INFO - Logging test precision
+[ 2026-09-14 15:36:05,885 ] 126 root - INFO - Logging test recall
+[ 2026-09-14 15:36:05,891 ] 133 root - INFO - All metrics logged
+[ 2026-09-14 15:36:05,891 ] 136 root - INFO - Starting model logging
+[ 2026-09-14 15:36:14,307 ] 143 root - INFO - Model logging completed
+[ 2026-09-14 15:36:14,307 ] 149 root - INFO - Model logging completed
+[ 2026-09-14 15:36:14,322 ] 151 root - INFO - MLflow run completed
+[ 2026-09-14 15:36:14,322 ] 535 root - INFO - MLflow experiment tracking completed
+[ 2026-09-14 15:36:14,322 ] 543 root - INFO - Loading preprocessing object
+[ 2026-09-14 15:36:14,323 ] 554 root - INFO - Preprocessing object loaded successfully
+[ 2026-09-14 15:36:14,324 ] 567 root - INFO - Creating model directory at: Artifacts/09_14_2026_15_35_03/model_trainer/trained_model
+[ 2026-09-14 15:36:14,324 ] 577 root - INFO - Model directory created successfully
+[ 2026-09-14 15:36:14,324 ] 585 root - INFO - Creating NetworkModel with preprocessor and best model
+[ 2026-09-14 15:36:14,324 ] 595 root - INFO - NetworkModel created successfully
+[ 2026-09-14 15:36:14,324 ] 603 root - INFO - Saving trained model at: Artifacts/09_14_2026_15_35_03/model_trainer/trained_model/model.pkl
+[ 2026-09-14 15:36:14,324 ] 45 root - INFO - Entered the save_object method in main_utils
+[ 2026-09-14 15:36:14,332 ] 49 root - INFO - Exited the save_object from main_utils
+[ 2026-09-14 15:36:14,332 ] 613 root - INFO - Trained model saved successfully
+[ 2026-09-14 15:36:14,333 ] 637 root - INFO - Model trainer artifacts created: ModelTrainerArtifacts(trained_model_file_path='Artifacts/09_14_2026_15_35_03/model_trainer/trained_model/model.pkl', train_metric_artifacts=ClassificationMetricArtifact(f1_score=0.9877115229653505, precision_score=0.9839454144089905, recall_score=0.9915065722952477), test_metric_artifacts=ClassificationMetricArtifact(f1_score=0.9761904761904762, precision_score=0.9714052287581699, recall_score=0.981023102310231))
+[ 2026-09-14 15:36:14,333 ] 642 root - INFO - Model training process completed successfully
