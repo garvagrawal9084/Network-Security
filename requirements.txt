@@ -8,4 +8,8 @@ dill
 pyaml
 xgboost
 mlflow
+dagshub
+fastapi
+uvicorn
+streamlit
 # -e .

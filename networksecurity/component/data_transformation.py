@@ -241,6 +241,8 @@ class DataTransformation:
                 preprocessor_obj,
             )
 
+            save_object("final_model/preprocessor.pkl" , preprocessor_obj)
+
             logging.info(
                 "Transformed data and preprocessing object saved successfully"
             )

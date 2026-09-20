@@ -39,6 +39,11 @@ from sklearn.ensemble import (
 from xgboost import XGBClassifier
 
 import mlflow
+import mlflow.xgboost
+import dagshub
+
+
+
 
 
 class ModelTrainer:
@@ -70,15 +75,15 @@ class ModelTrainer:
 
             logging.info("Setting MLflow tracking URI")
 
-            mlflow.set_tracking_uri(
-                "http://127.0.0.1:5000"
-            )
+            # mlflow.set_tracking_uri(
+            #     "http://127.0.0.1:5000"
+            # )
 
             logging.info("Setting MLflow experiment")
 
-            mlflow.set_experiment(
-                "Network Security"
-            )
+            # mlflow.set_experiment(
+            #     "Network Security"
+            # )
 
             logging.info("Starting MLflow run")
 
@@ -136,17 +141,35 @@ class ModelTrainer:
                 logging.info("Starting model logging")
 
                 try:
-                    mlflow.sklearn.log_model(
-                        best_model,
-                        name="best_model"
-                    )
+                    if isinstance(best_model, XGBClassifier):
+
+                        logging.info(
+                            "Best model is XGBoost. "
+                            "Using MLflow XGBoost flavor."
+                        )
+
+                        mlflow.xgboost.log_model(
+                            best_model,
+                            name="best_model"
+                        )
+
+                    else:
+
+                        logging.info(
+                            "Best model is sklearn. "
+                            "Using MLflow sklearn flavor."
+                        )
+
+                        mlflow.sklearn.log_model(
+                            best_model,
+                            name="best_model"
+                        )
+
                     logging.info("Model logging completed")
 
                 except Exception as e:
                     logging.exception("Model logging failed")
                     raise
-
-                logging.info("Model logging completed")
 
             logging.info("MLflow run completed")
 
@@ -610,6 +633,8 @@ class ModelTrainer:
                 obj=network_model
             )
 
+            save_object("final_model/model.pkl" , best_model)
+
             logging.info(
                 "Trained model saved successfully"
             )
@@ -661,6 +686,11 @@ class ModelTrainer:
     ) -> ModelTrainerArtifacts:
 
         try:
+
+            dagshub.init(repo_owner='garvagrawal9084', repo_name='Network-Security', mlflow=True)
+            mlflow.set_tracking_uri(
+            "https://dagshub.com/garvagrawal9084/Network-Security.mlflow"
+            )
 
             logging.info(
                 "Initiate model trainer"
