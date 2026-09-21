@@ -43,4 +43,4 @@ jobs:
 
       - name: Login to amazon ECR
         id: login-ecr
-        uses: aws-action/amazon-ecr-login@v2
+        uses: aws-action/amazon-ecr-login@v2 
