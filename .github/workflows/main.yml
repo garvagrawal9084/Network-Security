@@ -11,36 +11,38 @@ jobs:
   integration:
     name: Continuous Integration
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-    
+
       - name: Lint Code
         run: echo "Lint repo"
 
       - name: Run the Code
         run: echo "Running units test"
-  
+
   build-and-push-ecr-image:
-    name : Continuous Delivery
+    name: Continuous Delivery
     needs: integration
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-      
-      - name: install utilities
+
+      - name: Install utilities
         run: |
           sudo apt-get update
           sudo apt-get install -y jq unzip
-      
-      - name: Config AWS credentials
+
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region : ${{ secrets.AWS_REGION }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Login to amazon ECR
+      - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-action/amazon-ecr-login@v2 
+        uses: aws-actions/amazon-ecr-login@v2
